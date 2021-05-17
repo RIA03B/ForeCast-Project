@@ -1,2 +1,0 @@
-# ForeCast-Project
-Application that can display current temperature/ weather condition, wind, and visibility. This is going to determine the weather by using your location and you can see the forecast for the 7 days of your location. You can select any of those days to see the weather in more detail. You can also select a different location to view the weather for it. As well as the ability to change the unit system.
