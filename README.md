@@ -165,6 +165,8 @@ As a user I want to be able to know the weather in different locations of the wo
 ### Weekly Meeting  
 
 Wednesday at 5 PM. Use this Microsoft Teams:  
+https://teams.microsoft.com/l/meetup-join/19%3ameeting_NmJlZjdhZjQtZDFiMi00NjhhLTgyYzQtZDAwMGRlZmEwMDgz%40thread.v2/0?context=%7b%22Tid%22%3a%22f5222e6c-5fc6-48eb-8f03-73db18203b63%22%2c%22Oid%22%3a%226e862e08-9333-40a7-8d35-a86bba5e38fc%22%7d  
+
 
 
 
