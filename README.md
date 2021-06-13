@@ -54,7 +54,7 @@ As a user I want to be able to know the weather for today based on: how it feels
 **Then** the weather for that city will display how it feels like,  the wind, humidity, description of the weather, cloudiness, pressure, and wind speed.      
 
 
-### Requirment 101:The weather for the next seven days  
+### Requirment 101:The weather for a city in a different country  
 
 #### Senario  
 
@@ -100,7 +100,7 @@ As a user I want to be able to know the weather for a city in a different countr
 
 **IForecastDAO:** Interface for Retrofit for weather JSON.  
 
-**ISevenDayWeatherDAO:** Interface for weather data.  
+**IDAO:** Interface for weather data.  
 
 ### Scrum Roles  
 
