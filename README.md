@@ -91,7 +91,7 @@ As a user I want to be able to know the weather for a city in a different countr
 
 **Main Activity:** In the main screen the user will be able to see current temperature/ weather condition, how it feels like,  the wind, humidity, description of the weather, cloudiness, pressure, and wind speed.    
 
-**SevenDayWeatherDataActivity:** In the main screen the user will be able to see details of the weather selected for any city in any country displaying current temperature/ weather condition, how it feels like,  the wind, humidity, description of the weather, cloudiness, pressure, and wind speed.  
+**DataActivity:** In the main screen the user will be able to see details of the weather selected for any city in any country displaying current temperature/ weather condition, how it feels like,  the wind, humidity, description of the weather, cloudiness, pressure, and wind speed.  
 
 
 **RetrofitInstance:** Boostrap class required for Retrofit.  
