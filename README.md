@@ -10,13 +10,14 @@ Rania Ibrahim, Ali Ibrahim, Ben Momeni
 
 Do you wonder what the weather will be today? Do you know what the weather looks like in a few days? MyForecast can help you:
 - Display current temperature/ weather condition.
-- Display winds of the weather for the day.
-- Display visibility of the weather for the day.
--	Display the weather for the next seven days.
--	Display the weather for different locations.
--	Ability to change unit system.  
+- Display feel like of the weather for the day.
+- Display humidity of the weather for the day.
+-	Display a decription of the weather for the days.
+-	Display the wind speed.
+-	Display level of cloudiness for the day.
+-	Display the level of pressure for the day .  
 
-Forecasts can be used to plan activities around these events, and to plan ahead and survive them. Use your Android device to check your daily weather. See the forecast for the next 7 days of your location or any other location simply by changing the location.  
+Forecasts can be used to plan activities around these events, and to plan ahead and survive them. Use your Android device to check your daily weather or the weather for a location you plan on visiting for the day.  
 
 ## Storyboard  
 
@@ -30,11 +31,11 @@ Forecasts can be used to plan activities around these events, and to plan ahead 
 
 #### Senario  
 
-As a user I want to be able to know the weather for today based on: how it feels like outside, the wind, precipitation, and visibility.  
+As a user I want to be able to know the weather for today based on: how it feels like outside, the wind, humidity, description of the weather, cloudiness, pressure, and wind speed.  
 
 #### Dependencies  
 
-- The device will use user’s location to determine the weather.  
+- The device will use the location the user enters for a location to determine the weather.  
 
 - Weather data are available and accessible.  
 
@@ -42,95 +43,45 @@ As a user I want to be able to know the weather for today based on: how it feels
 
 - Unit system in Metric.  
 
-- Unit system in Imperial.  
-
 #### Examples  
 
 1.1  
 
-**Given** the weather for the day based on how it feels like outside, the wind, precipitation, and visibility based on user’s location.  
+**Given** the weather for the day based on how it feels like outside,  the wind, humidity, description of the weather, cloudiness, pressure, and wind speed based on user’s entery for location.  
+
+**When** user types the name if the city.  
+
+**Then** the weather for that city will display how it feels like,  the wind, humidity, description of the weather, cloudiness, pressure, and wind speed.      
+
 
 ### Requirment 101:The weather for the next seven days  
 
 #### Senario  
 
-As a user I want to be able to know the weather for the next seven days based on: how it feels like outside, the wind, precipitation, and visibility.  
+As a user I want to be able to know the weather for a city in a different country. As well as be able to know how it feels like,  the wind, humidity, description of the weather, cloudiness, pressure, and wind speed.  
 
 #### Dependencies  
 
-- The device will use user’s location to determine the weather.  
+- The device will use the location the user enters for a location to determine the weather.  
 
 - Weather data are available and accessible.  
+  
 
 #### Assumptions 
 
-- Unit system in Metric.  
-
-- Unit system in Imperial.  
+- Unit system in Metric. 
 
 #### Examples  
 
 1.1  
 
-**Given** the weather for the next seven days based on how it feels like outside, the wind, precipitation, and visibility based on user’s location.  
+**Given** the weather for a city in a different country. As well as be able to know how it feels like,  the wind, humidity, description of the weather, cloudiness, pressure, and wind speed.    
 
-**When** select the day you would like to view the weather for.  
+**When** user types the name of the city and country.  
 
-**Then** the weather for the next seven days based on how it feels like outside, the wind, precipitation, and visibility will be displayed.  
+**Then** the weather for that city and country will display how it feels like,  the wind, humidity, description of the weather, cloudiness, pressure, and wind speed.      
 
-### Requirment 102:Change Weather unit system   
-
-#### Senario  
-
-As a user I want to be able to know the weather in different unit systems based on the Metric system or the Imperial system.  
-
-#### Dependencies  
-
-- Weather data are available and accessible.  
-
-#### Assumptions 
-
-- Unit system in Metric.  
-
-- Unit system in Imperial.  
-
-#### Examples  
-
-1.1  
-
-**Given** two different unit systems.
-
-**When** selecting either of the unit systems.  
-
-**Then** I will be able to see a change in unit system next to the temperature of the weather on the main page.  
-
-### Requirment 103:Change Location  
-
-#### Senario  
-
-As a user I want to be able to know the weather in different locations of the world.  
-
-#### Dependencies  
-
-- The device will use user’s location to determine the weather.  
-
-- Weather data are available and accessible.  
-
-#### Assumptions 
-
-- Unit system in Metric.  
-
-- Unit system in Imperial.  
-
-#### Examples  
-
-1.1  
-
-**Given** search area for a location.
-
-**When** selecting a location.  
-
-**Then** I will be able to see that specified locations weather on the main page.  
+  
 
 ### Class Diagram  
 
@@ -138,17 +89,14 @@ As a user I want to be able to know the weather in different locations of the wo
 
 ### Class Diagram Description  
 
-**Main Activity:** The first screen the user sees will display current temperature/ weather condition, wind, and visibility for that day.  
+**Main Activity:** In the main screen the user will be able to see current temperature/ weather condition, how it feels like,  the wind, humidity, description of the weather, cloudiness, pressure, and wind speed.    
 
-**Weather:** The first screen the user sees will display current temperature/ weather condition, wind, and visibility for that day.  
+**SevenDayWeatherDataActivity:** In the main screen the user will be able to see details of the weather selected for any city in any country displaying current temperature/ weather condition, how it feels like,  the wind, humidity, description of the weather, cloudiness, pressure, and wind speed.  
 
-**SevenDayWeather:** A screen that shows the weather for the next seven day.  
-
-**SevenDayWeatherDataActivity:** A screen that shows details of the weather selected for the next seven day.  
 
 **RetrofitInstance:** Boostrap class required for Retrofit.  
 
-**Weather:** The first screen the user sees will display current temperature/ weather condition, wind, and visibility for that day.  
+**Weather:** The screen the user sees will display current temperature/ weather condition, how it feels like,  the wind, humidity, description of the weather, cloudiness, pressure, and wind speed.  
 
 **IForecastDAO:** Interface for Retrofit for weather JSON.  
 
