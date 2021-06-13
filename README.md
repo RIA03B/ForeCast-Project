@@ -93,14 +93,13 @@ As a user I want to be able to know the weather for a city in a different countr
 
 **DataActivity:** In the main screen the user will be able to see details of the weather selected for any city in any country displaying current temperature/ weather condition, how it feels like,  the wind, humidity, description of the weather, cloudiness, pressure, and wind speed.  
 
+**Volley:** Use Volley, which is an HTTP library that makes networking for Android apps easier and most importantly, faster.Volley excels at RPC-type operations used to populate a UI, such as fetching a page of search results as structured data. It integrates easily with any protocol and comes out of the box with support for raw strings, images, and JSON.  
 
-**RetrofitInstance:** Boostrap class required for Retrofit.  
+**Json:** Use json object from the string response.  
 
 **Weather:** The screen the user sees will display current temperature/ weather condition, how it feels like,  the wind, humidity, description of the weather, cloudiness, pressure, and wind speed.  
 
-**IForecastDAO:** Interface for Retrofit for weather JSON.  
-
-**IDAO:** Interface for weather data.  
+**IDAO:** Interface for weather data. Define a final string variable to store the url and define a final string variable to store the app id. 
 
 ### Scrum Roles  
 
