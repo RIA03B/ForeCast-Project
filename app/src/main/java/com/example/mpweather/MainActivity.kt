@@ -16,7 +16,7 @@ import org.json.JSONObject
 import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
-    //Declare the view object refrences
+    //Declare the view object references
     var etCity: EditText? = null
     var etCountry: EditText? = null
     var tvResult: TextView? = null
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     //Define a final string variable to store the app id
     private val appid = "62985350695c6c5b6f476b823778d5e5"
 
-    // Display tempiture in two decimal format design
+    // Display temperature in two decimal format design
     var df = DecimalFormat("#.##")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         var tempUrl = ""
         val city = etCity!!.text.toString().trim { it <= ' ' }
         val country = etCountry!!.text.toString().trim { it <= ' ' }
-        //if city field is empty show an error message else complere the url
+        //if city field is empty show an error message else complete the url
         if (city == "") {
             tvResult!!.text = "City field can not be empty!"
         } else {
