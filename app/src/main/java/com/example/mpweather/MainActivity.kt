@@ -4,8 +4,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
@@ -14,12 +12,9 @@ import com.android.volley.toolbox.Volley
 import org.json.JSONException
 import org.json.JSONObject
 import java.text.DecimalFormat
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    //Declare the view object refrences
-    var etCity: EditText? = null
-    var etCountry: EditText? = null
-    var tvResult: TextView? = null
 
     //Define a final string variable to store the url
     private val url = "http://api.openweathermap.org/data/2.5/weather"
@@ -28,14 +23,10 @@ class MainActivity : AppCompatActivity() {
     private val appid = "62985350695c6c5b6f476b823778d5e5"
 
     // Display tempiture in two decimal format design
-    var df = DecimalFormat("#.##")
+    internal var decimalFormatting = DecimalFormat("#.##")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //Get handles for views
-        etCity = findViewById(R.id.etCity)
-        etCountry = findViewById(R.id.etCountry)
-        tvResult = findViewById(R.id.tvResult)
     }
 
     fun getWeatherDetails(view: View?) {
@@ -71,8 +62,8 @@ class MainActivity : AppCompatActivity() {
                     val jsonObjectMain = jsonResponse.getJSONObject("main")
                     //Get the values of temp, pressure, and humidity from Json object main
                     //We subtract it to get temperature in celsius
-                    val temp = jsonObjectMain.getDouble("temp") - 273.15
-                    val feelsLike = jsonObjectMain.getDouble("feels_like") - 273.15
+                    val temp = jsonObjectMain.getDouble("temp") - TEMP_NUMBER
+                    val feelsLike = jsonObjectMain.getDouble("feels_like") - TEMP_NUMBER
                     val pressure = jsonObjectMain.getInt("pressure").toFloat()
                     val humidity = jsonObjectMain.getInt("humidity")
                     //Get Json object called wind
@@ -93,8 +84,8 @@ class MainActivity : AppCompatActivity() {
                     tvResult!!.setTextColor(Color.rgb(68, 134, 199))
                     // Create the output string by concatenating the necessary variables properly
                     output += """Current weather of $cityName ($countryName)
- Temp: ${df.format(temp)}  °C
- Feels Like: ${df.format(feelsLike)}  °C
+Temp: ${decimalFormatting.format(temp)}  °C
+ Feels Like: ${decimalFormatting.format(feelsLike)}  °C
  Humidity: $humidity  %
  Description: $description
  Wind Speed: ${wind}m/s (meters per second)
@@ -117,4 +108,9 @@ class MainActivity : AppCompatActivity() {
             requestQueue.add(stringRequest)
         }
     }
+    //An object that holds the variable for the number that is used to get the tempreture in °C
+    companion object{
+        const val TEMP_NUMBER = 273.15
+    }
+
 }

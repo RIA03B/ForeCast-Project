@@ -22,20 +22,22 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/etCity"
             android:layout_width="match_parent"
             android:layout_height="94dp"
             android:layout_marginBottom="5dp"
+            android:text=""
             android:ems="10"
             android:hint="Enter City Name"
             android:inputType="textPersonName" />
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/etCountry"
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:layout_marginBottom="5dp"
+            android:text=""
             android:ems="10"
             android:hint="Enter Country Code (Optional)"
             android:inputType="textPersonName" />
