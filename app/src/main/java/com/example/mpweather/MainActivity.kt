@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
                     //Get name of city from Json response
                     val cityName = jsonResponse.getString("name")
                     //Change the color of text view
-                    tvResult!!.setTextColor(Color.rgb(68, 134, 199))
+                    tvResult!!.setTextColor(Color.rgb(0, 0, 0))
                     // Create the output string by concatenating the necessary variables properly
                     output += """Current weather of $cityName ($countryName)
 Temp: ${decimalFormatting.format(temp)}  °C
@@ -108,6 +108,7 @@ Temp: ${decimalFormatting.format(temp)}  °C
             requestQueue.add(stringRequest)
         }
     }
+
     //An object that holds the variable for the number that is used to get the tempreture in °C
     companion object{
         const val TEMP_NUMBER = 273.15
