@@ -4,11 +4,16 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.mpweather.ui.main.MainViewModel
 import org.json.JSONException
 import org.json.JSONObject
 import java.text.DecimalFormat
@@ -16,6 +21,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var viewModel: MainViewModel
     //Define a final string variable to store the url
     private val url = "http://api.openweathermap.org/data/2.5/weather"
 
@@ -27,7 +33,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel.locations.observe(this, Observer{
+                locations -> etCity.setAdapter(ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, locations))
+        })
     }
+
 
     fun getWeatherDetails(view: View?) {
         //Define a string to hold the complete url
@@ -108,6 +119,7 @@ Temp: ${decimalFormatting.format(temp)}  °C
             requestQueue.add(stringRequest)
         }
     }
+
 
     //An object that holds the variable for the number that is used to get the tempreture in °C
     companion object{
