@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     private val url = "http://api.openweathermap.org/data/2.5/weather"
 
     //Define a final string variable to store the app id
-    private val appid = "62985350695c6c5b6f476b823778d5e5"
+    private val appId = "62985350695c6c5b6f476b823778d5e5"
 
     // Display temperature in two decimal format design
     internal var decimalFormatting = DecimalFormat("#.##")
@@ -33,15 +33,11 @@ class MainActivity : AppCompatActivity() {
         //Define a string to hold the complete url
         var tempUrl = ""
         val city = etCity!!.text.toString().trim { it <= ' ' }
-        val country = etCountry!!.text.toString().trim { it <= ' ' }
         //if city field is empty show an error message else complete the url
         if (city == "") {
             tvResult!!.text = "City field can not be empty!"
         } else {
-            tempUrl = if (country != "") {
-                "$url?q=$city,$country&appid=$appid"
-            } else {
-                "$url?q=$city&appid=$appid"
+            tempUrl = "$url?q=$city&units=metric&appid=$appId"
             }
             // instantiate a string request object
             val stringRequest = StringRequest(Request.Method.POST, tempUrl, { response ->
@@ -62,8 +58,8 @@ class MainActivity : AppCompatActivity() {
                     val jsonObjectMain = jsonResponse.getJSONObject("main")
                     //Get the values of temp, pressure, and humidity from Json object main
                     //We subtract it to get temperature in celsius
-                    val temp = jsonObjectMain.getDouble("temp") - TEMP_NUMBER
-                    val feelsLike = jsonObjectMain.getDouble("feels_like") - TEMP_NUMBER
+                    val temp = jsonObjectMain.getDouble("temp")
+                    val feelsLike = jsonObjectMain.getDouble("feels_like")
                     val pressure = jsonObjectMain.getInt("pressure").toFloat()
                     val humidity = jsonObjectMain.getInt("humidity")
                     //Get Json object called wind
@@ -108,9 +104,3 @@ Temp: ${decimalFormatting.format(temp)}  °C
             requestQueue.add(stringRequest)
         }
     }
-    //An object that holds the variable for the number that is used to get the tempreture in °C
-    companion object{
-        const val TEMP_NUMBER = 273.15
-    }
-
-}
